@@ -8,7 +8,7 @@
 
       <input id="german" [(ngModel)]="german" name="german" />
       <input id="vietnamese" [(ngModel)]="vietnamese" name="vietnamese" />
-      <button type="submit" class="icon-btn">
+      <button type="submit" class="icon-btn" [disabled]="!german || !vietnamese">
         <img src="assets/add.png" alt="Add" />
       </button>
     </div>

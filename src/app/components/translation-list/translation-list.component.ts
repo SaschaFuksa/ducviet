@@ -54,7 +54,7 @@ export class TranslationListComponent implements OnInit {
     }
     this.translationService.delete(id).subscribe(() => {
       this.pairs = this.pairs.filter(pair => pair.id !== id);
-      this.applyFilter(); // Reapply filter after deletion
+      this.filteredPairs = this.filteredPairs.filter(pair => pair.id !== id);
     });
   }
 

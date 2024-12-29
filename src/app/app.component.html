@@ -1,14 +1,16 @@
 <nav class="top-nav">
   <div class="nav-logo">
-    <img src="assets/ducviet.png" alt="DucViet Logo" class="logo" />
-    <h1><a routerLink="/">DucViet</a></h1>
+    <a routerLink="/"><img src="assets/ducviet.png" alt="DucViet Logo" class="logo" /></a>
   </div>
   <div class="nav-links">
     <a routerLink="/list">Translations</a>
-    <a routerLink="/impressum">Impressum</a>
   </div>
 </nav>
 
 <main class="content">
   <router-outlet></router-outlet>
 </main>
+
+<footer class="footer">
+  <a routerLink="/impressum">Legal Notice</a>
+</footer>
