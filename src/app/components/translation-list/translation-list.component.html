@@ -31,6 +31,7 @@
       <div *ngIf="editingPair?.id !== pair.id; else editGerman">{{ pair.german }}</div>
       <ng-template #editGerman>
         <input
+          class="edit-input"
           [(ngModel)]="editingPair!.german"
           (blur)="onSaveEdit(pair)"
         />
@@ -38,15 +39,25 @@
       <div *ngIf="editingPair?.id !== pair.id; else editVietnamese">{{ pair.vietnamese }}</div>
       <ng-template #editVietnamese>
         <input
+          class="edit-input"
           [(ngModel)]="editingPair!.vietnamese"
           (blur)="onSaveEdit(pair)"
         />
       </ng-template>
 
       <div>
-        <button *ngIf="editingPair?.id !== pair.id" class="icon-btn" (click)="onEdit(pair)">
+        <button
+          *ngIf="editingPair?.id !== pair.id; else saveButton"
+          class="icon-btn"
+          (click)="onEdit(pair)"
+        >
           <img src="assets/edit.png" alt="Edit" />
         </button>
+        <ng-template #saveButton>
+          <button class="icon-btn" (click)="onSaveEdit(pair)">
+            <img src="assets/accept.png" alt="Save" />
+          </button>
+        </ng-template>
       </div>
 
       <div>
