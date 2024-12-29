@@ -1,0 +1,18 @@
+.impressum-container {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 1rem;
+  background-color: #fff;
+  border-radius: 4px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.impressum-container h1 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.impressum-container p {
+  font-size: 1rem;
+  line-height: 1.6;
+}

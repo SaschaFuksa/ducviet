@@ -12,6 +12,17 @@
   padding: 1rem 2rem;
 }
 
+.nav-logo {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.logo {
+  height: 40px; /* Maximale Höhe für das Logo */
+  object-fit: contain;
+}
+
 .top-nav h1 {
   color: var(--accent-color);
   margin: 0;
@@ -21,10 +32,10 @@
   color: var(--accent-color);
   text-decoration: none;
 }
+
 .top-nav h1 a:hover {
   opacity: 0.85;
 }
-
 
 .nav-links a {
   margin-left: 1rem;

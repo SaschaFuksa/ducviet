@@ -7,10 +7,12 @@ import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { TranslationFormComponent } from './components/translation-form/translation-form.component';
 import { TranslationListComponent } from './components/translation-list/translation-list.component';
+import { ImpressumComponent } from './pages/impressum/impressum.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    ImpressumComponent
   ],
   imports: [
     BrowserModule,
