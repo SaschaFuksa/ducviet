@@ -1,0 +1,44 @@
+:root {
+  --primary-color: #1a1a1a;
+  --accent-color: #ff5722;
+  --text-color: #ffffff;
+}
+
+.top-nav {
+  background-color: var(--primary-color);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+}
+
+.top-nav h1 {
+  color: var(--accent-color);
+  margin: 0;
+}
+
+.top-nav h1 a {
+  color: var(--accent-color);
+  text-decoration: none;
+}
+.top-nav h1 a:hover {
+  opacity: 0.85;
+}
+
+
+.nav-links a {
+  margin-left: 1rem;
+  color: var(--text-color);
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.nav-links a:hover {
+  color: var(--accent-color);
+}
+
+.content {
+  background-color: #f0f0f0;
+  min-height: 100vh;
+  padding: 2rem;
+}
