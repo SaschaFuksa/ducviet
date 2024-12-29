@@ -1,0 +1,23 @@
+<div class="card">
+  <h2>Add Translation</h2>
+  <form (ngSubmit)="onSave()">
+    <div class="form-grid">
+      <div class="header">German</div>
+      <div class="header">Vietnamese</div>
+      <div></div>
+
+      <input id="german" [(ngModel)]="german" name="german" />
+      <input id="vietnamese" [(ngModel)]="vietnamese" name="vietnamese" />
+      <button type="submit" class="icon-btn">
+        <img src="assets/add.png" alt="Add" />
+      </button>
+    </div>
+  </form>
+
+  <div *ngIf="savedMessageVisible" class="success-message">
+    Erfolgreich gespeichert
+  </div>
+  <div *ngIf="duplicateMessageVisible" class="error-message">
+    Bereits in Datenbank erfasst
+  </div>
+</div>

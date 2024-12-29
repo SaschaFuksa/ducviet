@@ -1,0 +1,59 @@
+.card {
+  background: #fff;
+  padding: 1rem;
+  border-radius: 4px;
+  max-width: 600px;
+  margin: 2rem auto;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr auto;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.header {
+  font-weight: bold;
+  text-align: left;
+}
+
+input {
+  width: 100%;
+  padding: 0.5rem;
+  box-sizing: border-box;
+}
+
+.icon-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  justify-self: center;
+}
+
+.icon-btn img {
+  width: 24px;
+  height: 24px;
+}
+
+.icon-btn:hover img {
+  opacity: 0.8;
+}
+
+.success-message {
+  margin-top: 1rem;
+  background-color: #dff0d8;
+  color: #3c763d;
+  padding: 0.75rem;
+  border-radius: 4px;
+}
+
+.error-message {
+  margin-top: 1rem;
+  background-color: #f2dede;
+  color: #a94442;
+  padding: 0.75rem;
+  border-radius: 4px;
+}

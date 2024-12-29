@@ -1,0 +1,33 @@
+<div class="card">
+  <h2>Translations</h2>
+  <div class="list-grid">
+    <div class="header">German</div>
+    <div class="header">Vietnamese</div>
+    <div class="header">
+      <img src="assets/filter.png" alt="Filter" class="icon" (click)="toggleFilter('german')" />
+    </div>
+    <div class="header">
+      <img src="assets/sort.png" alt="Sort" class="icon" (click)="sortBy('vietnamese')" />
+    </div>
+
+    <div *ngFor="let pair of filteredPairs" class="row">
+      <div>{{ pair.german }}</div>
+      <div>{{ pair.vietnamese }}</div>
+      <div>
+        <button class="icon-btn" (click)="onEdit(pair)">
+          <img src="assets/edit.png" alt="Edit" />
+        </button>
+      </div>
+      <div>
+        <button class="icon-btn" (click)="onDelete(pair.id)">
+          <img src="assets/delete.png" alt="Delete" />
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="isFiltering" class="filter-bar">
+    <input [(ngModel)]="filterText" placeholder="Filter..." (input)="applyFilter()" />
+    <button (click)="clearFilter()">Clear</button>
+  </div>
+</div>
