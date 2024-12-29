@@ -52,27 +52,29 @@
   opacity: 0.8;
 }
 
-.filter-bar {
-  margin-top: 1rem;
+.filter-cell {
   display: flex;
   align-items: center;
   gap: 0.5rem;
+  grid-column: span 1;
 }
 
-.filter-bar input {
-  flex: 1;
+.filter-cell input {
+  width: 100%;
   padding: 0.5rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
 }
 
-.filter-bar button {
+.filter-clear {
   background: #ff5722;
   color: white;
   border: none;
   border-radius: 4px;
-  padding: 0.5rem 1rem;
+  padding: 0.5rem;
   cursor: pointer;
 }
 
-.filter-bar button:hover {
+.filter-clear:hover {
   opacity: 0.85;
 }

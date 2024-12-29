@@ -1,23 +1,54 @@
 <div class="card">
   <h2>Translations</h2>
   <div class="list-grid">
-    <div class="header">German</div>
-    <div class="header">Vietnamese</div>
     <div class="header">
+      German
       <img src="assets/filter.png" alt="Filter" class="icon" (click)="toggleFilter('german')" />
+      <img src="assets/sort.png" alt="Sort" class="icon" (click)="sortBy('german')" />
     </div>
     <div class="header">
+      Vietnamese
+      <img src="assets/filter.png" alt="Filter" class="icon" (click)="toggleFilter('vietnamese')" />
       <img src="assets/sort.png" alt="Sort" class="icon" (click)="sortBy('vietnamese')" />
     </div>
+    <div class="header" style="min-width: 32px"></div>
+    <div class="header" style="min-width: 32px"></div>
+
+    <div *ngIf="isFiltering && filterField != 'german'" class="filter-cell"></div>
+    <div *ngIf="isFiltering && filterField === 'german'" class="filter-cell">
+      <input [(ngModel)]="filterText" placeholder="Filter German..." (input)="applyFilter()" />
+      <button class="filter-clear" (click)="clearFilter()">Clear</button>
+    </div>
+    <div *ngIf="isFiltering && filterField != 'vietnamese'" class="filter-cell"></div>
+    <div *ngIf="isFiltering && filterField === 'vietnamese'" class="filter-cell">
+      <input [(ngModel)]="filterText" placeholder="Filter Vietnamese..." (input)="applyFilter()" />
+      <button class="filter-clear" (click)="clearFilter()">Clear</button>
+    </div>
+    <div *ngIf="isFiltering" class="filter-cell"></div>
+    <div *ngIf="isFiltering" class="filter-cell"></div>
 
     <div *ngFor="let pair of filteredPairs" class="row">
-      <div>{{ pair.german }}</div>
-      <div>{{ pair.vietnamese }}</div>
+      <div *ngIf="editingPair?.id !== pair.id; else editGerman">{{ pair.german }}</div>
+      <ng-template #editGerman>
+        <input
+          [(ngModel)]="editingPair!.german"
+          (blur)="onSaveEdit(pair)"
+        />
+      </ng-template>
+      <div *ngIf="editingPair?.id !== pair.id; else editVietnamese">{{ pair.vietnamese }}</div>
+      <ng-template #editVietnamese>
+        <input
+          [(ngModel)]="editingPair!.vietnamese"
+          (blur)="onSaveEdit(pair)"
+        />
+      </ng-template>
+
       <div>
-        <button class="icon-btn" (click)="onEdit(pair)">
+        <button *ngIf="editingPair?.id !== pair.id" class="icon-btn" (click)="onEdit(pair)">
           <img src="assets/edit.png" alt="Edit" />
         </button>
       </div>
+
       <div>
         <button class="icon-btn" (click)="onDelete(pair.id)">
           <img src="assets/delete.png" alt="Delete" />
@@ -26,8 +57,4 @@
     </div>
   </div>
 
-  <div *ngIf="isFiltering" class="filter-bar">
-    <input [(ngModel)]="filterText" placeholder="Filter..." (input)="applyFilter()" />
-    <button (click)="clearFilter()">Clear</button>
-  </div>
 </div>

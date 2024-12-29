@@ -19,6 +19,9 @@ export class TranslationListComponent implements OnInit {
   filterField: 'german' | 'vietnamese' | null = null;
   sortField: 'german' | 'vietnamese' | null = null;
   sortDirection: 'asc' | 'desc' = 'asc';
+  editingPair: TranslationPair | null = null;
+  editGerman = '';
+  editVietnamese = '';
 
   constructor(private translationService: TranslationService) {}
 
@@ -30,7 +33,18 @@ export class TranslationListComponent implements OnInit {
   }
 
   onEdit(pair: TranslationPair): void {
-    console.log('Editing:', pair);
+    this.editingPair = { ...pair };
+  }
+
+  onSaveEdit(pair: TranslationPair): void {
+    if (!this.editingPair) return;
+
+    pair.german = this.editingPair.german ?? '';
+    pair.vietnamese = this.editingPair.vietnamese ?? '';
+
+    this.translationService.update(pair).subscribe(() => {
+      this.editingPair = null;
+    });
   }
 
   onDelete(id: number | undefined): void {
@@ -45,11 +59,12 @@ export class TranslationListComponent implements OnInit {
   }
 
   toggleFilter(field: 'german' | 'vietnamese'): void {
-    if (this.filterField === field) {
+    if (this.filterField === field && this.isFiltering) {
       this.clearFilter();
     } else {
       this.filterField = field;
       this.isFiltering = true;
+      this.filterText = '';
     }
   }
 
